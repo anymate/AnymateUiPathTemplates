@@ -1,0 +1,150 @@
+<Activity mc:Ignorable="sap sap2010" x:Class="CreateTasks" xmlns="http://schemas.microsoft.com/netfx/2009/xaml/activities" xmlns:au="clr-namespace:Anymate.UiPath;assembly=Anymate.UiPath" xmlns:aut="clr-namespace:Anymate.UiPath.Tasks;assembly=Anymate.UiPath" xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" xmlns:mva="clr-namespace:Microsoft.VisualBasic.Activities;assembly=System.Activities" xmlns:sap="http://schemas.microsoft.com/netfx/2009/xaml/activities/presentation" xmlns:sap2010="http://schemas.microsoft.com/netfx/2010/xaml/activities/presentation" xmlns:scg="clr-namespace:System.Collections.Generic;assembly=mscorlib" xmlns:sd="clr-namespace:System.Data;assembly=System.Data" xmlns:ui="http://schemas.uipath.com/workflow/activities" xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml">
+  <x:Members>
+    <x:Property Name="in_Config" Type="InArgument(scg:Dictionary(x:String, x:Object))" />
+    <x:Property Name="in_Datatable" Type="InArgument(sd:DataTable)" />
+    <x:Property Name="in_AnymateClient" Type="InArgument(au:AnymateClient)" />
+  </x:Members>
+  <mva:VisualBasic.Settings>
+    <x:Null />
+  </mva:VisualBasic.Settings>
+  <sap:VirtualizedContainerService.HintSize>1208,1098</sap:VirtualizedContainerService.HintSize>
+  <sap2010:WorkflowViewState.IdRef>CreateTasks_1</sap2010:WorkflowViewState.IdRef>
+  <TextExpression.NamespacesForImplementation>
+    <scg:List x:TypeArguments="x:String" Capacity="29">
+      <x:String>System.Activities</x:String>
+      <x:String>System.Activities.Statements</x:String>
+      <x:String>System.Activities.Expressions</x:String>
+      <x:String>System.Activities.Validation</x:String>
+      <x:String>System.Activities.XamlIntegration</x:String>
+      <x:String>Microsoft.VisualBasic</x:String>
+      <x:String>Microsoft.VisualBasic.Activities</x:String>
+      <x:String>System</x:String>
+      <x:String>System.Collections</x:String>
+      <x:String>System.Collections.Generic</x:String>
+      <x:String>System.Data</x:String>
+      <x:String>System.Diagnostics</x:String>
+      <x:String>System.Drawing</x:String>
+      <x:String>System.IO</x:String>
+      <x:String>System.Linq</x:String>
+      <x:String>System.Net.Mail</x:String>
+      <x:String>System.Xml</x:String>
+      <x:String>System.Xml.Linq</x:String>
+      <x:String>UiPath.Core</x:String>
+      <x:String>UiPath.Core.Activities</x:String>
+      <x:String>System.Windows.Markup</x:String>
+      <x:String>Anymate.UiPath</x:String>
+      <x:String>System.ComponentModel</x:String>
+      <x:String>System.Runtime.Serialization</x:String>
+      <x:String>System.Xml.Serialization</x:String>
+      <x:String>Anymate.UiPath.Tasks</x:String>
+      <x:String>System.Collections.ObjectModel</x:String>
+      <x:String>System.Activities.DynamicUpdate</x:String>
+      <x:String>Newtonsoft.Json</x:String>
+    </scg:List>
+  </TextExpression.NamespacesForImplementation>
+  <TextExpression.ReferencesForImplementation>
+    <scg:List x:TypeArguments="AssemblyReference" Capacity="28">
+      <AssemblyReference>System.Activities</AssemblyReference>
+      <AssemblyReference>Microsoft.VisualBasic</AssemblyReference>
+      <AssemblyReference>mscorlib</AssemblyReference>
+      <AssemblyReference>System.Data</AssemblyReference>
+      <AssemblyReference>System.Data.DataSetExtensions</AssemblyReference>
+      <AssemblyReference>System</AssemblyReference>
+      <AssemblyReference>System.Drawing</AssemblyReference>
+      <AssemblyReference>System.Core</AssemblyReference>
+      <AssemblyReference>System.Xml</AssemblyReference>
+      <AssemblyReference>System.Xml.Linq</AssemblyReference>
+      <AssemblyReference>PresentationFramework</AssemblyReference>
+      <AssemblyReference>WindowsBase</AssemblyReference>
+      <AssemblyReference>PresentationCore</AssemblyReference>
+      <AssemblyReference>System.Xaml</AssemblyReference>
+      <AssemblyReference>UiPath.System.Activities</AssemblyReference>
+      <AssemblyReference>UiPath.UiAutomation.Activities</AssemblyReference>
+      <AssemblyReference>Anymate.UiPath</AssemblyReference>
+      <AssemblyReference>System.Runtime.Serialization</AssemblyReference>
+      <AssemblyReference>System.ServiceModel</AssemblyReference>
+      <AssemblyReference>Microsoft.Bcl.AsyncInterfaces</AssemblyReference>
+      <AssemblyReference>System.ValueTuple</AssemblyReference>
+      <AssemblyReference>System.Memory</AssemblyReference>
+      <AssemblyReference>UiPath.OCR.Activities.Design</AssemblyReference>
+      <AssemblyReference>UiPath.Excel</AssemblyReference>
+      <AssemblyReference>UiPath.UIAutomationCore</AssemblyReference>
+      <AssemblyReference>UiPath.Mail</AssemblyReference>
+      <AssemblyReference>System.ComponentModel.Composition</AssemblyReference>
+      <AssemblyReference>Newtonsoft.Json</AssemblyReference>
+    </scg:List>
+  </TextExpression.ReferencesForImplementation>
+  <Sequence sap2010:Annotation.AnnotationText="We supply the Anymate Create Tasks with a Datatable as input. It is also possible to use your own json array or use a List of objects or dictionaries if you prefer." DisplayName="CreateTasks" sap:VirtualizedContainerService.HintSize="797,893" sap2010:WorkflowViewState.IdRef="Sequence_1">
+    <Sequence.Variables>
+      <Variable x:TypeArguments="scg:List(x:Int64)" Name="CreatedTaskIdList" />
+      <Variable x:TypeArguments="x:String" Name="ResponseMsg" />
+      <Variable x:TypeArguments="x:Boolean" Name="Succeeded" />
+    </Sequence.Variables>
+    <sap:WorkflowViewStateService.ViewState>
+      <scg:Dictionary x:TypeArguments="x:String, x:Object">
+        <x:Boolean x:Key="IsExpanded">True</x:Boolean>
+        <x:Boolean x:Key="IsAnnotationDocked">True</x:Boolean>
+      </scg:Dictionary>
+    </sap:WorkflowViewStateService.ViewState>
+    <aut:CreateTasks AnymateClient="[in_AnymateClient]" CreatedTaskIdList="[CreatedTaskIdList]" DatatablePayload="[in_Datatable]" DisplayName="Create tasks" sap:VirtualizedContainerService.HintSize="755,22" sap2010:WorkflowViewState.IdRef="CreateTasks_2" Message="[ResponseMsg]" ProcessKey="[in_Config.Item(&quot;Anymate.CreateToProcessKey&quot;).ToString]" Succeeded="[Succeeded]" />
+    <Sequence sap2010:Annotation.AnnotationText="Includes custom log fields to the log message.&#xA;They are removed after logging to prevent duplicated status messages about a single transaction." DisplayName="Log CreateTask Results with additional logging fields" sap:VirtualizedContainerService.HintSize="755,697" sap2010:WorkflowViewState.IdRef="Sequence_2">
+      <Sequence.Variables>
+        <Variable x:TypeArguments="x:String" Name="log_msg" />
+        <Variable x:TypeArguments="x:String" Name="taskIdArray" />
+      </Sequence.Variables>
+      <sap:WorkflowViewStateService.ViewState>
+        <scg:Dictionary x:TypeArguments="x:String, x:Object">
+          <x:Boolean x:Key="IsExpanded">True</x:Boolean>
+          <x:Boolean x:Key="IsAnnotationDocked">True</x:Boolean>
+          <x:Boolean x:Key="IsPinned">False</x:Boolean>
+        </scg:Dictionary>
+      </sap:WorkflowViewStateService.ViewState>
+      <Assign DisplayName="Serialize TaskIds" sap:VirtualizedContainerService.HintSize="713,60" sap2010:WorkflowViewState.IdRef="Assign_2">
+        <Assign.To>
+          <OutArgument x:TypeArguments="x:String">[taskIdArray]</OutArgument>
+        </Assign.To>
+        <Assign.Value>
+          <InArgument x:TypeArguments="x:String">[Newtonsoft.Json.JsonConvert.SerializeObject(CreatedTaskIdList)]</InArgument>
+        </Assign.Value>
+      </Assign>
+      <ui:AddLogFields DisplayName="Add transaction log fields (Success)" sap:VirtualizedContainerService.HintSize="713,22" sap2010:WorkflowViewState.IdRef="AddLogFields_1">
+        <ui:AddLogFields.Fields>
+          <InArgument x:TypeArguments="x:String" x:Key="logF_TaskIds">
+            <mva:VisualBasicValue x:TypeArguments="x:String" ExpressionText="taskIdArray" />
+          </InArgument>
+          <InArgument x:TypeArguments="x:String" x:Key="logF_ResponseMsg">
+            <mva:VisualBasicValue x:TypeArguments="x:String" ExpressionText="ResponseMsg" />
+          </InArgument>
+        </ui:AddLogFields.Fields>
+      </ui:AddLogFields>
+      <Assign sap:VirtualizedContainerService.HintSize="713,60" sap2010:WorkflowViewState.IdRef="Assign_1">
+        <Assign.To>
+          <OutArgument x:TypeArguments="x:String">[log_msg]</OutArgument>
+        </Assign.To>
+        <Assign.Value>
+          <InArgument x:TypeArguments="x:String">[in_Config("LogMessage_CreateTasks").ToString + " Succeeded: " + Succeeded.ToString + " / Response: " + ResponseMsg]</InArgument>
+        </Assign.Value>
+      </Assign>
+      <If Condition="[Succeeded]" sap:VirtualizedContainerService.HintSize="713,239" sap2010:WorkflowViewState.IdRef="If_1">
+        <If.Then>
+          <ui:LogMessage DisplayName="Log Message (Info)" sap:VirtualizedContainerService.HintSize="334,91" sap2010:WorkflowViewState.IdRef="LogMessage_1" Level="Info" Message="[log_msg]" />
+        </If.Then>
+        <If.Else>
+          <ui:LogMessage DisplayName="Log Message (Error)" sap:VirtualizedContainerService.HintSize="334,91" sap2010:WorkflowViewState.IdRef="LogMessage_2" Level="Error" Message="[log_msg]" />
+        </If.Else>
+      </If>
+      <ui:RemoveLogFields DisplayName="Remove transaction log fields (Success)" sap:VirtualizedContainerService.HintSize="713,22" sap2010:WorkflowViewState.IdRef="RemoveLogFields_1">
+        <ui:RemoveLogFields.Fields>
+          <scg:List x:TypeArguments="InArgument(x:String)" Capacity="8">
+            <InArgument x:TypeArguments="x:String">
+              <Literal x:TypeArguments="x:String">logF_ResponseMsg</Literal>
+            </InArgument>
+            <InArgument x:TypeArguments="x:String">
+              <Literal x:TypeArguments="x:String">logF_TaskIds</Literal>
+            </InArgument>
+          </scg:List>
+        </ui:RemoveLogFields.Fields>
+      </ui:RemoveLogFields>
+    </Sequence>
+  </Sequence>
+</Activity>
